@@ -2,7 +2,7 @@
 #from    netcdf4         import dataset
 
 # to save the time coordinate in specific format 
-from    netCDF4         import num2date, date2num
+from  netCDF4   import num2date, date2num
 
 # Python standard library datetime  module
 import datetime as dt  

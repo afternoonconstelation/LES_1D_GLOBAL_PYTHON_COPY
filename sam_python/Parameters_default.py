@@ -1,6 +1,6 @@
 import  os,sys
 import cartopy.crs as ccrs
-MODEL='MPAS'
+MODEL='SAM'
 
 plotdef='2d'
 
@@ -15,15 +15,10 @@ egeon='/pesq'
 
 UTC=-4
 
-#path =egeon+"/dados/bamc/jhonatan.aguirre/git_repositories/PAPER3_SHCA" 
-#path =egeon+"/dados/bamc/jhonatan.aguirre/git_repositories/PAPER3_SHCA" 
-path =egeon+"/dados/bamc/jhonatan.aguirre/git_repositories/PAPER3_SHCA" 
+path ="./" 
 
 # Out figure folder
-#out_fig=path+'/document/fig'
-#out_fig=path+'/COMPARACAO/document/fig'
-#out_fig=path+'/comparison_paper/fig_new'
-out_fig=path+'/comparison_paper/version5_atmospheric_research/figs'
+out_fig=path
 
 #out python nc files
 out_files= path+'/python_nc'

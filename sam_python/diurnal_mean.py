@@ -39,7 +39,7 @@ def color_hours(hour):
 
     	#line=[2, 1]
     	color='cyan'
-
+    
     elif  hour==12:
 
           line=[3, 1]
@@ -100,7 +100,6 @@ def label_plots(ax,lim,explabel):
     
     if( explabel[0]=='oct_01' or explabel[0]=='mean_shallow'):
     	plt.legend(frameon=False)
-
     return ax
 
 
@@ -265,8 +264,8 @@ def diurnal_hours_cld_core(exp,days,alt,lim,color,explabel,explabel2,show,diurna
     figs,axis = main_plot_diurnal_2var(var1,var2,data,z,days,alt,lim,color,name,explabel,explabel2,diurnal)
 
     for ax in axis:
-	    ax.text(0.025, 0.45, r'Core' , fontsize=12, color='gray')
-	    ax.text(0.045, 2.5 , r'Cloud', fontsize=12, color='navy')
+        ax.text(0.025, 0.45, r'Core' , fontsize=12, color='gray')
+        ax.text(0.045, 2.5 , r'Cloud', fontsize=12, color='navy')
 
     if show:
         plt.show()
@@ -387,7 +386,7 @@ def diurnal_hours_tq(exp,days,alt,lim1,lim2,cor1,cor2,explabel,explabel2,show,di
 def diurnal_hours_qlflux(exp,days,alt,lim,color,explabel,explabel2,show,diurnal): 
 
     print("__________")
-    print "QLFLUX_ Liquid water flux"
+    print("QLFLUX_ Liquid water flux")
     print("__________")
 
     var =[]

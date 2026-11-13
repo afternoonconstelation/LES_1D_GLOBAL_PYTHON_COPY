@@ -15,7 +15,13 @@ import  scam.default_values      as df
 
 import matplotlib.ticker as ticker
 
-import nc_time_axis
+"""
+Pacote nc_time_axis para Fornece suporte para eixos de tempo não-gregorianos e
+customizados em gráficos do Matplotlib 
+(muito comum em dados climáticos e de ciências da Terra armazenados em arquivos NetCDF).
+
+"""
+import nc_time_axis  
 
 
 ###from    files_direction                import file_fig, file_temporal,tplot_size

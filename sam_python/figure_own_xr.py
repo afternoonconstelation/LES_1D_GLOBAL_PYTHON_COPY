@@ -36,14 +36,26 @@ import  sam_python.plotparameters      as pp
 
 import os
 
+from pathlib import Path
 
-#to cp the parametres defaul 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Rardiles Ferreira 2024-06-05
+local_dir = Path(__file__).resolve().parent 
+
+shell_command = f'cp {local_dir.joinpath("Parameters_default.py")} {local_dir.resolve().parent.joinpath("Parameters_default.py")}'
+
+subprocess.run(shell_command, shell = True, executable="/bin/bash")
+
+pars=importlib.import_module('.Parameters_default','sam_python',)
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+"""
+#to cp the parameter default 
 subprocess.run('cp Parameters_default.py /pesq/dados/bamc/jhonatan.aguirre/git_repositories/MAPS_python/sam_python/', shell = True, executable="/bin/bash")
 
 #used the user parameter to plot(plotparameter.py) if para:
 #pars=__import__('source.Parameters_default',globals())
 pars=importlib.import_module('.Parameters_default','sam_python',)
-
+"""
 if hasattr(pars, "out_table"):
     file1 = f"{pars.out_table}table_days.tex"
     file2 =f"{pars.out_table}table_days_14.tex"
@@ -668,33 +680,33 @@ def base_top_cloud(fig,ax,ex,color,plotime):
 
     #############
     # Open the file safely using 'with'
-    with open(
-        "/pesq/dados/bamc/jhonatan.aguirre/git_repositories/PAPER3_SHCA/SCM_IOPS_LEV_p0/python/table_days.tex",
-        "a",
-    ) as file1: 
+    #with open(
+    #    "/pesq/dados/bamc/jhonatan.aguirre/git_repositories/PAPER3_SHCA/SCM_IOPS_LEV_p0/python/table_days.tex",
+    #    "a",
+    #) as file1: 
 
-        file1.write(
-        f"# &{str(ex.name.values)}& {base_max:.3f}& {top_max:.3f} & {top_max - base_max:.3f} &\\\\ \n")
+    #    file1.write(
+    #    f"# &{str(ex.name.values)}& {base_max:.3f}& {top_max:.3f} & {top_max - base_max:.3f} &\\\\ \n")
 
-    with open(
-        "/pesq/dados/bamc/jhonatan.aguirre/git_repositories/PAPER3_SHCA/SCM_IOPS_LEV_p0/python/table_days_14.tex",
-        "a",
-    ) as file2: 
+    #with open(
+    #    "/pesq/dados/bamc/jhonatan.aguirre/git_repositories/PAPER3_SHCA/SCM_IOPS_LEV_p0/python/table_days_14.tex",
+    #    "a",
+    #) as file2: 
 
-        file2.write(
-        f"# &{str(ex.name.values)}& {cbmax14:.3f}& {top_14:.3f} & {top_14 - cbmax14:.3f} &\\\\ \n")
+    #    file2.write(
+    #    f"# &{str(ex.name.values)}& {cbmax14:.3f}& {top_14:.3f} & {top_14 - cbmax14:.3f} &\\\\ \n")
 
-    with open(
-        "/pesq/dados/bamc/jhonatan.aguirre/git_repositories/PAPER3_SHCA/SCM_IOPS_LEV_p0/python/table_days_15.tex",
-        "a",
-    ) as file3: 
+    #with open(
+    #    "/pesq/dados/bamc/jhonatan.aguirre/git_repositories/PAPER3_SHCA/SCM_IOPS_LEV_p0/python/table_days_15.tex",
+    #    "a",
+    #) as file3: 
 
-        file3.write(
-        f"# &{str(ex.name.values)}& {cbmax15:.3f}& {top_15:.3f} & {top_15 - cbmax15:.3f} &\\\\ \n")
+    #    file3.write(
+    #    f"# &{str(ex.name.values)}& {cbmax15:.3f}& {top_15:.3f} & {top_15 - cbmax15:.3f} &\\\\ \n")
 
-    print(
-    f"# &{str(ex.name.values)}& {base_max:.3f}({cbmax14:.3f})& {top_max:.3f}({top_14:.3f}) & {top_max - base_max:.3f}({top_14 - cbmax14:.3f}) \\\\ "
-    )
+    #print(
+    #f"# &{str(ex.name.values)}& {base_max:.3f}({cbmax14:.3f})& {top_max:.3f}({top_14:.3f}) & {top_max - base_max:.3f}({top_14 - cbmax14:.3f}) \\\\ "
+    #)
     ##print( 
     ##       f'{str(ex.name.values)}
     ##       & {base_max:.3f}({cbmax14:.3f})-{base_sam:.3f}({basem_sam:.3f})

@@ -2,6 +2,8 @@
 
 import  matplotlib.pyplot as plt
 
+import numpy as np
+
 from    netCDF4         import num2date, date2num
 
 #To work with date in plots 
@@ -204,9 +206,9 @@ def color_hours(hour):
 
     line=[1,0]
     color='k'
-
+    
     if hour==9:
-
+    
         line=[3,2,1,2]
         color='magenta'
         
@@ -217,8 +219,8 @@ def color_hours(hour):
     
     elif  hour==11:
     
-    	line=[2, 1]
-    	color='b'
+        line=[2, 1]
+        color='b'
     
     elif  hour==12:
     
@@ -256,9 +258,9 @@ def color_hours(hour):
         color='y'
     
     elif  hour==19:
-
+    
         line=[1,2,4,2]
         color='c'
-
+    
     return line,color
 
