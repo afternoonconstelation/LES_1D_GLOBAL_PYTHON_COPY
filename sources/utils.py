@@ -38,7 +38,7 @@ pythonpath = os.environ.get("PYTHONPATH")
 
 """
 
-def copy_parameters_default(model_package_name='sam_python'):
+def copy_parameters_default(caller_file = __file__,model_package_name='sam_python'):
  
 
     # 1. Get and validate PYTHONPATH only for required package.
@@ -51,16 +51,16 @@ def copy_parameters_default(model_package_name='sam_python'):
             f"Submodule '{model_package_name}' doesn't found."
             f"Verify the actual PYTHONPATH: {pythonpath}"
         )
-
+    
     first_path = Path(spec.submodule_search_locations[0]).resolve()
 
 
     # 3. Define source and target files
     # solving the trouble with the relative path of the Parameters_default.py file
-    
-    actual_dir = Path(__file__).parent.resolve() # returns the  directory of the current script only
+    # tem que fazer essa linha pegar o local do arquivo que chama a função, e não onde ela ta gravada
+    actual_dir = Path(caller_file).parent.parent.resolve() # returns the  directory of the current script only
     source_file = actual_dir.joinpath("Parameters_default.py") # file to copy with the parameters given by the user
-    
+
     target_dir = Path(first_path).resolve()
     target_file = target_dir / source_file.name
 

@@ -37,12 +37,16 @@ import  sam_python.plotparameters      as pp
 import os
 
 from pathlib import Path
-from sources.utils import copy_parameters_default
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Rardiles Ferreira 2024-06-05
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Rardiles Ferreira 2024-06-05
+"""
+quando essa rotina é chamada por outros scripts, ela ja copia os parametros.
+tem-se que refatorar essa dependencia para que a copia seja efetuada antes das rotinas serem chamadas.
+"""
+
 from sources.utils import copy_parameters_default
 pars=copy_parameters_default(model_package_name='sam_python')
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 if hasattr(pars, "out_table"):
     file1 = f"{pars.out_table}table_days.tex"
@@ -251,7 +255,7 @@ def temporal(fig,ax,toplot,var):
     #ax2.set_xlim([hours[0],hours[1]])
 
     return fig,ax,ax2
-
+"""
 def base_top_cloud_ghost(fig,ax,ex,color):
 
     size= ex.time.shape[0]
@@ -472,7 +476,7 @@ def base_top_cloud_ghost(fig,ax,ex,color):
     #else :
 
     return fig,ax
-
+"""
 
 def base_top_cloud(fig,ax,ex,color,plotime):
 
@@ -806,7 +810,7 @@ def label_plots(time,ax,legend,explabel1,explabel2,tama):
 
 
     return ax
-
+"""
 def base_top_cloud_ghost_old(fig,ax,ex,color):
 
     size= ex.time.shape[0]
@@ -1027,3 +1031,4 @@ def base_top_cloud_ghost_old(fig,ax,ex,color):
     #else :
 
     return fig,ax
+"""

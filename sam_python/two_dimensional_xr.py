@@ -18,7 +18,7 @@ import  datetime as dt
 #import  campain_data  as cd
 import  sam_python.data_own       as down
 
-#import  sam_python.figure_own_xr       as fown
+import  sam_python.figure_own_xr       as fown
 
 import  sam_python.default_values as df
 
@@ -42,6 +42,7 @@ import shutil
 
 from sources.utils import copy_parameters_default
 pars=copy_parameters_default(model_package_name='sam_python')
+
 
 """
 from  cftime import num2date, num2pydate
