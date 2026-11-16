@@ -18,7 +18,7 @@ import  datetime as dt
 #import  campain_data  as cd
 import  sam_python.data_own       as down
 
-import  sam_python.figure_own_xr       as fown
+#import  sam_python.figure_own_xr       as fown
 
 import  sam_python.default_values as df
 
@@ -34,14 +34,16 @@ import  xarray as xr
 import pandas as pd
 
 import seaborn as sns
+import os
+from pathlib import Path
+import shutil
 
 #import  sam_python.plotparameters      as pp
 
-from pathlib import Path
+from sources.utils import copy_parameters_default
+pars=copy_parameters_default(model_package_name='sam_python')
 
-import os
-import shutil
-
+"""
 from  cftime import num2date, num2pydate
 # 1. Get and validate PYTHONPATH
 pythonpath = os.environ.get("PYTHONPATH")
@@ -77,6 +79,8 @@ pars = importlib.import_module(
     '.Parameters_default',
     'sam_python'
 )
+"""
+
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

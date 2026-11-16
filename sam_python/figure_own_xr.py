@@ -37,25 +37,13 @@ import  sam_python.plotparameters      as pp
 import os
 
 from pathlib import Path
+from sources.utils import copy_parameters_default
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Rardiles Ferreira 2024-06-05
-local_dir = Path(__file__).resolve().parent 
-
-shell_command = f'cp {local_dir.joinpath("Parameters_default.py")} {local_dir.resolve().parent.joinpath("Parameters_default.py")}'
-
-subprocess.run(shell_command, shell = True, executable="/bin/bash")
-
-pars=importlib.import_module('.Parameters_default','sam_python',)
+from sources.utils import copy_parameters_default
+pars=copy_parameters_default(model_package_name='sam_python')
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-"""
-#to cp the parameter default 
-subprocess.run('cp Parameters_default.py /pesq/dados/bamc/jhonatan.aguirre/git_repositories/MAPS_python/sam_python/', shell = True, executable="/bin/bash")
-
-#used the user parameter to plot(plotparameter.py) if para:
-#pars=__import__('source.Parameters_default',globals())
-pars=importlib.import_module('.Parameters_default','sam_python',)
-"""
 if hasattr(pars, "out_table"):
     file1 = f"{pars.out_table}table_days.tex"
     file2 =f"{pars.out_table}table_days_14.tex"
