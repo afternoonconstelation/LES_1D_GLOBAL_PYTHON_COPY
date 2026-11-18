@@ -6,7 +6,7 @@ import importlib.util
 
 
 
-def copy_parameters_default(model_package_name='sam_python'):
+def copy_parameters_default(model_package_name='scam'):
  
 
     #  Get and validate PYTHONPATH only for required package.
@@ -41,6 +41,6 @@ def copy_parameters_default(model_package_name='sam_python'):
 
     pars = importlib.import_module(
         '.Parameters_default',
-        'sam_python'
+        f'{model_package_name}'
     )
     return pars

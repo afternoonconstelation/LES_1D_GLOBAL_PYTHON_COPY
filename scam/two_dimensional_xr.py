@@ -35,8 +35,9 @@ import  scam.default_values as df
 
 import  scam.forcing_file_common as ffc
 
-#to cp the parametres defaul 
-subprocess.run('cp Parameters_default.py /pesq/dados/bamc/jhonatan.aguirre/git_repositories/MAPS_python/scam/', shell = True, executable="/bin/bash")
+from scam.utils import copy_parameters_default 
+pars=copy_parameters_default(model_package_name='scam')
+
 
 #used the user parameter to plot(plotparameter.py) if para:
 #pars=__import__('source.Parameters_default',globals())

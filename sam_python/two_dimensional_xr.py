@@ -41,48 +41,8 @@ import inspect
 
 #import  sam_python.plotparameters      as pp
 
-from sources.utils import copy_parameters_default 
+from sam_python.utils import copy_parameters_default 
 pars=copy_parameters_default(model_package_name='sam_python')
-
-
-"""
-from  cftime import num2date, num2pydate
-# 1. Get and validate PYTHONPATH
-pythonpath = os.environ.get("PYTHONPATH")
-
-if not pythonpath:
-    raise EnvironmentError("PYTHONPATH is not set.")
-
-# 2. Extract the first directory from PYTHONPATH
-valid_paths = [p for p in pythonpath.split(os.pathsep) if p]
-
-if not valid_paths:
-    raise EnvironmentError("PYTHONPATH contains no valid directories.")
-
-first_path = valid_paths[0]
-
-# 3. Define source and target files
-source_file = Path("Parameters_default.py").resolve()
-target_dir = Path(first_path).resolve()
-target_file = target_dir / 'sam_python' / source_file.name
-
-#print("Current directory:", Path.cwd())
-#print("Source:", source_file)
-#print("Target:", target_file)
-
-shutil.copy2(source_file, target_file)
-#print("Copy completed successfully.")
-#exit()
-
-# 5. Import Parameters_default
-importlib.invalidate_caches()
-
-pars = importlib.import_module(
-    '.Parameters_default',
-    'sam_python'
-)
-"""
-
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

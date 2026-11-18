@@ -1,5 +1,10 @@
-import  os,sys
-import cartopy.crs as ccrs
+import  os                                                           
+from pathlib import Path
+
+"""
+@todo: change to yaml
+
+"""
 
 MODEL='SCAM'
 
@@ -16,32 +21,24 @@ computer='/pesq'
 
 UTC=-4
 
-path =computer+"/dados/bamc/jhonatan.aguirre/git_repositories/SCAM_CESM" 
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# diretorio atual
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+path =Path("./")
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Out figure folder
-#out_fig=path+'/document/fig'
-#out_fig=path+'/PRESSAO/document/fig_2014'
-out_fig=path+'/document/figs'
-#out_fig=path+'/pesq/dados/bamc/jhonatan.aguirre/git_repositories/relatorio_pci/pci_2026/fig'
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
-out_table=path+'/python/'
+out_fig = path.joinpath('scam_figures')
+out_table=path.joinpath('scam_table_files')
 
 #out python nc files
-out_files= path+'/python/'
+out_files= path.joinpath('scam_nc_files')
+ 
+os.makedirs(out_fig,exist_ok=True)
+os.makedirs(out_table,exist_ok=True)
+os.makedirs(out_files,exist_ok=True)     
 
 
-# Check if the directory exists
-if not os.path.exists(out_fig):
-    # If it doesn't exist, create it
-    os.makedirs(out_fig)
-
-# Check if the directory exists
-if not os.path.exists(out_table):
-    # If it doesn't exist, create it
-    os.makedirs(out_table)
-
-# Check if the directory exists
-if not os.path.exists(out_files):
-    # If it doesn't exist, create it
-    os.makedirs(out_files)

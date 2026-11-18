@@ -44,7 +44,7 @@ quando essa rotina é chamada por outros scripts, ela ja copia os parametros.
 tem-se que refatorar essa dependencia para que a copia seja efetuada antes das rotinas serem chamadas.
 """
 
-from sources.utils import copy_parameters_default
+from scam.utils import copy_parameters_default
 pars=copy_parameters_default(model_package_name='sam_python')
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

@@ -20,7 +20,7 @@ UTC=-4
 # default. assumes that data is in the current directory. 
 # You can change this to any other path where your data is located.
 # @todo: if path not specified, use the current working directory
-path=Path("./Rar_data") 
+path=Path("./") 
 
 # Out figure folder
 out_fig=path.joinpath('sam_figures')
