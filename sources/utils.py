@@ -4,44 +4,12 @@ from pathlib import Path
 import importlib
 import importlib.util
 
-"""
-1- map the file location path  
-   
-   upstream directory  
-      |
-      |---- script directory (with the script that will be executed)
-                |          
-        downstream directory
 
 
-2- copy the file Parameters_default.py to the sam_python directory in the first path of PYTHONPATH
-3- import Parameters_default.py from sam_python directory
-"""
-
-
-"""
-Esse parte do código dependia que no PYTHONPATH apenas o pacote estivesse adicionado.
-Isso poderia gerar problemas futuros, caso o usuário adicionasse mais de um diretório no PYTHONPATH.
-    
-pythonpath = os.environ.get("PYTHONPATH")
-
-    if not pythonpath:
-        raise EnvironmentError("PYTHONPATH is not set.")
-
-    # 2. Extract the first directory from PYTHONPATH
-    valid_paths = [p for p in pythonpath.split(os.pathsep) if p]
-
-    if not valid_paths:
-        raise EnvironmentError("PYTHONPATH contains no valid directories.")
-
-    first_path = valid_paths[0]
-
-"""
-
-def copy_parameters_default(caller_file = __file__,model_package_name='sam_python'):
+def copy_parameters_default(model_package_name='sam_python'):
  
 
-    # 1. Get and validate PYTHONPATH only for required package.
+    #  Get and validate PYTHONPATH only for required package.
     spec = importlib.util.find_spec(model_package_name)
     
     # check if the package is found even if is installed using pip install -e or using an virtual enviroment
@@ -56,17 +24,13 @@ def copy_parameters_default(caller_file = __file__,model_package_name='sam_pytho
 
 
     # 3. Define source and target files
-    # solving the trouble with the relative path of the Parameters_default.py file
-    # tem que fazer essa linha pegar o local do arquivo que chama a função, e não onde ela ta gravada
-    actual_dir = Path(caller_file).parent.parent.resolve() # returns the  directory of the current script only
-    source_file = actual_dir.joinpath("Parameters_default.py") # file to copy with the parameters given by the user
-
+    source_file = Path("Parameters_default.py").resolve()
     target_dir = Path(first_path).resolve()
     target_file = target_dir / source_file.name
 
-    #print("Current directory:", Path.cwd())
-    #print("Source:", source_file)
-    #print("Target:", target_file)
+    print("Current directory:", Path.cwd())
+    print("Source:", source_file)
+    print("Target:", target_file)
 
     shutil.copy2(source_file, target_file)
     #print("Copy completed successfully.")
@@ -77,11 +41,6 @@ def copy_parameters_default(caller_file = __file__,model_package_name='sam_pytho
 
     pars = importlib.import_module(
         '.Parameters_default',
-        model_package_name
+        'sam_python'
     )
     return pars
-
-"""
-if __name__=="__main__":
-   print(copy_parameters_default().__file__)
-"""   

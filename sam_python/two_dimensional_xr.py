@@ -37,10 +37,11 @@ import seaborn as sns
 import os
 from pathlib import Path
 import shutil
+import inspect
 
 #import  sam_python.plotparameters      as pp
 
-from sources.utils import copy_parameters_default
+from sources.utils import copy_parameters_default 
 pars=copy_parameters_default(model_package_name='sam_python')
 
 
