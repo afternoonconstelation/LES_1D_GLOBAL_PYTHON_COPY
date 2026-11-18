@@ -2,11 +2,7 @@
 
 import  numpy as np
 
-import  cftime
-
 import matplotlib.patches as mpatches
-
-import  matplotlib          as mpl
 
 import  matplotlib.pyplot   as plt
 
@@ -22,26 +18,16 @@ import  sam_python.figure_own_xr       as fown
 
 import  sam_python.default_values as df
 
-#To work with date in plots 
-import  matplotlib.dates as mdates
-
-import  importlib
-
-import  subprocess, sys
-
 import  xarray as xr
 
 import pandas as pd
 
 import seaborn as sns
-import os
-from pathlib import Path
-import shutil
-import inspect
+
 
 #import  sam_python.plotparameters      as pp
 
-from sam_python.utils import copy_parameters_default 
+from sources.utils import copy_parameters_default 
 pars=copy_parameters_default(model_package_name='sam_python')
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

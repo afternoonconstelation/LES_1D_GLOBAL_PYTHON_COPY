@@ -41,12 +41,14 @@ import nc_time_axis
 import cftime
 
 
-#to cp the parametres defaul 
-subprocess.run('cp Parameters_default.py /pesq/dados/bamc/jhonatan.aguirre/git_repositories/MAPS_python/sam_python/', shell = True, executable="/bin/bash")
 
-#used the user parameter to plot(plotparameter.py) if para:
-#pars=__import__('source.Parameters_default',globals())
-pars=importlib.import_module('.Parameters_default','sam_python',)
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# copying the user parameters
+
+from sources.utils import copy_parameters_default 
+pars=copy_parameters_default(model_package_name='scam')
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 if hasattr(pars, "out_table"):
     file1 = f"{pars.out_table}table_days.tex"

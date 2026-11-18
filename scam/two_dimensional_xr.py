@@ -35,13 +35,12 @@ import  scam.default_values as df
 
 import  scam.forcing_file_common as ffc
 
-from scam.utils import copy_parameters_default 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# copying the user parameters
+
+from sources.utils import copy_parameters_default 
 pars=copy_parameters_default(model_package_name='scam')
-
-
-#used the user parameter to plot(plotparameter.py) if para:
-#pars=__import__('source.Parameters_default',globals())
-pars=importlib.import_module('.Parameters_default','scam',)
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 def two_dimensional_xr(ex,variables,date,name=[],explabel1=[],explabel2=[],alt=[],contour=[],var_to=[],color=[],leg_loc=[],show=[]):

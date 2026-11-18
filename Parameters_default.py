@@ -54,11 +54,9 @@ out_files= path+'/python_nc'
 
 
 # Check if the directory exists
-if not os.path.exists(out_fig):
-    # If it doesn't exist, create it
-    os.makedirs(out_fig)
+
+os.makedirs(out_fig,exist_ok=True)
 
 # Check if the directory exists
-if not os.path.exists(out_files):
-    # If it doesn't exist, create it
-    os.makedirs(out_files)
+
+os.makedirs(out_files,exist_ok=True)

@@ -6,7 +6,7 @@ import importlib.util
 
 
 
-def copy_parameters_default(model_package_name='scam'):
+def copy_parameters_default(model_package_name:str=None):
  
 
     #  Get and validate PYTHONPATH only for required package.
@@ -27,14 +27,13 @@ def copy_parameters_default(model_package_name='scam'):
     source_file = Path("Parameters_default.py").resolve()
     target_dir = Path(first_path).resolve()
     target_file = target_dir / source_file.name
-
+    
     print("Current directory:", Path.cwd())
     print("Source:", source_file)
     print("Target:", target_file)
-
+    
     shutil.copy2(source_file, target_file)
-    #print("Copy completed successfully.")
-    #exit()
+  
 
     # 5. Import Parameters_default
     importlib.invalidate_caches()
