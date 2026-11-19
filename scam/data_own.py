@@ -1,7 +1,8 @@
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # python library to work with netcdf4 
-#from    netcdf4         import dataset
-
+# from    netcdf4         import dataset
 # to save the time coordinate in specific format 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 from    netCDF4         import num2date, date2num
 
 # Python standard library datetime  module
@@ -17,6 +18,7 @@ import pandas as pd
 import  scam.forcing_file_common as ffc
 
 import numpy as np
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 def data_load_xr(path,name,UTC):
 
